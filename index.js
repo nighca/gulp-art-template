@@ -5,11 +5,11 @@
 
 'use strict';
 
-const artTemplate = require('art-template');
-const through2 = require('through2');
-const gutil = require('gulp-util');
+var artTemplate = require('art-template');
+var through2 = require('through2');
+var gutil = require('gulp-util');
 
-const PluginError = gutil.PluginError;
+var PluginError = gutil.PluginError;
 
 artTemplate.defaults.extname = '.tpl';
 
@@ -29,12 +29,12 @@ module.exports = function (options) {
             return;
         }
 
-        let renderer = artTemplate.compile(
+        var renderer = artTemplate.compile(
             file.contents.toString(),
             {filename: file.path}
         );
 
-        let data = typeof options.data === 'function'
+        var data = typeof options.data === 'function'
             ? options.data(file) || {}
             : options.data;
 

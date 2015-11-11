@@ -1,15 +1,15 @@
 'use strict';
 
-const should = require('should');
-const gutil = require('gulp-util');
-const fs = require('fs');
-const path = require('path');
+var should = require('should');
+var gutil = require('gulp-util');
+var fs = require('fs');
+var path = require('path');
 
-const artTemplate = require('../');
+var artTemplate = require('../');
 
 var getTemplate = function (templateName) {
-    let base = path.join(__dirname, 'fixtures');
-    let filePath = path.join(base, templateName + '.tpl');
+    var base = path.join(__dirname, 'fixtures');
+    var filePath = path.join(base, templateName + '.tpl');
 
     return new gutil.File({
         cwd: __dirname,
@@ -24,20 +24,20 @@ var getData = function (templateName) {
 };
 
 var getExpect = function (templateName) {
-    let filePath = path.join(__dirname, 'fixtures', templateName + '.html');
+    var filePath = path.join(__dirname, 'fixtures', templateName + '.html');
 
     return fs.readFileSync(filePath, 'utf8');
 };
 
 describe('gulp-art-template', function () {
     it('should render template', function (done) {
-        let template = getTemplate('index');
+        var template = getTemplate('index');
 
-        let stream = artTemplate({
+        var stream = artTemplate({
             data: getData('index')
         });
 
-        let expect = getExpect('index');
+        var expect = getExpect('index');
 
         stream.on('data', function (htmlFile) {
             should.exist(htmlFile);
