@@ -14,9 +14,7 @@ var PluginError = gutil.PluginError;
 artTemplate.defaults.extname = '.tpl';
 
 module.exports = function (options) {
-    options = Object.assign({
-        data: {}
-    }, options);
+    options = options || {};
 
     return through2.obj(function (file, enc, cb) {
         if (file.isNull()) {
@@ -34,9 +32,11 @@ module.exports = function (options) {
             {filename: file.path}
         );
 
-        var data = typeof options.data === 'function'
-            ? options.data(file) || {}
-            : options.data;
+        var data = (
+            typeof options.data === 'function'
+                ? options.data(file)
+                : options.data
+        ) || {};
 
         file.path = gutil.replaceExtension(file.path, '.html');
 
