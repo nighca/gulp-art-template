@@ -1,0 +1,11 @@
+{
+	"head": {
+		"output": "head"
+	},
+	"body": {
+		"output": "body"
+	},
+	"foot": {
+		"output": "foot"
+	}
+}

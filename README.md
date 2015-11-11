@@ -1,2 +1,2 @@
 # gulp-art-template
-A artTemplate plugin for Gulp
+A Gulp plugin for artTemplate

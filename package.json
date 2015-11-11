@@ -1,0 +1,32 @@
+{
+  "name": "gulp-art-template",
+  "version": "0.0.1",
+  "description": "A Gulp plugin for artTemplate",
+  "main": "index.js",
+  "dependencies": {
+    "art-template": "^3.0.3",
+    "gulp-util": "^3.0.7",
+    "through2": "^2.0.0"
+  },
+  "devDependencies": {
+    "mocha": "^2.3.3",
+    "should": "^7.1.1"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nighca/gulp-art-template.git"
+  },
+  "keywords": [
+    "artTemplate",
+    "gulp"
+  ],
+  "author": "nighca@live.cn",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nighca/gulp-art-template/issues"
+  },
+  "homepage": "https://github.com/nighca/gulp-art-template#readme"
+}
