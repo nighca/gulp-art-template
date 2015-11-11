@@ -29,17 +29,18 @@ module.exports = function (options) {
             return;
         }
 
-        let str = file.contents.toString();
+        let renderer = artTemplate.compile(
+            file.contents.toString(),
+            {filename: file.path}
+        );
 
-        let renderer = artTemplate.compile(str, {
-            filename: file.path
-        });
-
-        let result = renderer(options.data);
+        let data = typeof options.data === 'function'
+            ? options.data(file) || {}
+            : options.data;
 
         file.path = gutil.replaceExtension(file.path, '.html');
 
-        file.contents = new Buffer(result);
+        file.contents = new Buffer(renderer(data));
 
         cb(null, file);
     });
